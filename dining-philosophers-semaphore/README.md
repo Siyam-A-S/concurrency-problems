@@ -209,3 +209,16 @@ make clean
 ## License
 
 Educational use only.
+
+## Valgrind leak_check
+All resources cleaned up successfully!
+
+==6557== 
+==6557== HEAP SUMMARY:
+==6557==     in use at exit: 0 bytes in 0 blocks
+==6557==   total heap usage: 160 allocs, 160 frees, 12,256 bytes allocated
+==6557== 
+==6557== All heap blocks were freed -- no leaks are possible
+==6557== 
+==6557== For lists of detected and suppressed errors, rerun with: -s
+==6557== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
