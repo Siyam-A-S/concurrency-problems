@@ -1,1 +1,12 @@
 .vscode/
+# Ignore the entire build directory
+/build/*
+
+# Re-include the build directory itself (necessary for subsequent rules to work)
+!/build/
+
+# Re-include all subdirectories within build (using double wildcard for any level)
+!/build/**/
+
+# Explicitly re-include the specific file you want to track
+!/build/Makefile

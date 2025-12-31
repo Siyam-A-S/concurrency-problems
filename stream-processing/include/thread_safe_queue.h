@@ -211,15 +211,6 @@ private:
 };
 
 /**
- * @brief Alias for backward compatibility and documentation
- * 
- * Note: This is NOT lock-free in the MVP. The name is kept for API compatibility.
- * Use ThreadSafeQueue directly for clarity.
- */
-template<typename T, size_t Capacity = 10000>
-using LockFreeQueue = ThreadSafeQueue<T>;
-
-/**
  * @brief Example usage:
  * 
  * ThreadSafeQueue<MessagePtr> message_queue(4096);

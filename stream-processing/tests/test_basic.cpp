@@ -19,7 +19,7 @@
 #include <atomic>
 
 #include "message.h"
-#include "lock_free_queue.h"
+#include "thread_safe_queue.h"
 #include "object_pool.h"
 #include "config.h"
 
