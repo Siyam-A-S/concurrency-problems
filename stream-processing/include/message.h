@@ -48,6 +48,7 @@ struct Message {
     // Message metadata
     uint64_t offset{0};              // Unique offset within partition
     uint64_t timestamp_ms{0};        // Unix timestamp in milliseconds
+    uint32_t partition{0};           // Partition ID (set by producer)
     uint32_t checksum{0};            // CRC32 for integrity check
     MessagePriority priority{MessagePriority::NORMAL};
     CompressionCodec codec{CompressionCodec::NONE};

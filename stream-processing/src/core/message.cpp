@@ -169,6 +169,7 @@ std::vector<uint8_t> Message::serialize() const {
      * Wire format:
      * [8 bytes: offset]
      * [8 bytes: timestamp_ms]
+     * [4 bytes: partition]
      * [4 bytes: checksum]
      * [1 byte: priority]
      * [1 byte: codec]
@@ -177,10 +178,10 @@ std::vector<uint8_t> Message::serialize() const {
      * [4 bytes: value_size]
      * [M bytes: value]
      * 
-     * Total header: 26 bytes + key.size() + value.size()
+     * Total header: 34 bytes + key.size() + value.size()
      */
     
-    const size_t header_size = 8 + 8 + 4 + 1 + 1 + 4 + 4; // 30 bytes
+    const size_t header_size = 8 + 8 + 4 + 4 + 1 + 1 + 4 + 4; // 34 bytes
     const size_t total_size = header_size + key.size() + value.size();
     
     std::vector<uint8_t> buffer(total_size);
@@ -189,6 +190,7 @@ std::vector<uint8_t> Message::serialize() const {
     // Write header
     write_le(ptr, offset);
     write_le(ptr, timestamp_ms);
+    write_le(ptr, partition);
     write_le(ptr, checksum);
     write_le(ptr, static_cast<uint8_t>(priority));
     write_le(ptr, static_cast<uint8_t>(codec));
@@ -211,7 +213,7 @@ std::vector<uint8_t> Message::serialize() const {
 }
 
 std::shared_ptr<Message> Message::deserialize(const uint8_t* data, size_t size) {
-    const size_t min_header_size = 8 + 8 + 4 + 1 + 1 + 4 + 4; // 30 bytes
+    const size_t min_header_size = 8 + 8 + 4 + 4 + 1 + 1 + 4 + 4; // 34 bytes
     
     if (data == nullptr || size < min_header_size) {
         return nullptr;
@@ -225,6 +227,7 @@ std::shared_ptr<Message> Message::deserialize(const uint8_t* data, size_t size) 
     // Read header
     msg->offset = read_le<uint64_t>(ptr);
     msg->timestamp_ms = read_le<uint64_t>(ptr);
+    msg->partition = read_le<uint32_t>(ptr);
     msg->checksum = read_le<uint32_t>(ptr);
     msg->priority = static_cast<MessagePriority>(read_le<uint8_t>(ptr));
     msg->codec = static_cast<CompressionCodec>(read_le<uint8_t>(ptr));

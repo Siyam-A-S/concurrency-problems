@@ -111,11 +111,11 @@ TEST(serialize_basic) {
     
     auto bytes = msg->serialize();
     
-    // Header: 8 + 8 + 4 + 1 + 1 + 4 + 4 = 30 bytes
+    // Header: 8 + 8 + 4 + 4 + 1 + 1 + 4 + 4 = 34 bytes (added partition)
     // Key: 8 bytes ("test-key")
     // Value: 10 bytes ("test-value")
-    // Total: 48 bytes
-    ASSERT_EQ(bytes.size(), 48u);
+    // Total: 52 bytes
+    ASSERT_EQ(bytes.size(), 52u);
 }
 
 TEST(serialize_deserialize_roundtrip) {

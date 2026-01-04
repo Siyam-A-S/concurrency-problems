@@ -51,4 +51,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_basic.dir/DependInfo.cmake"
   "CMakeFiles/test_serialization.dir/DependInfo.cmake"
   "CMakeFiles/test_storage.dir/DependInfo.cmake"
+  "CMakeFiles/test_topic.dir/DependInfo.cmake"
   )

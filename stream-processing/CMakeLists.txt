@@ -49,6 +49,8 @@ set(CORE_SOURCES
 # Create main library with source files
 add_library(streamprocessor STATIC
     src/core/message.cpp
+    src/core/partition.cpp
+    src/core/topic.cpp
     src/storage/log_segment.cpp
 )
 target_include_directories(streamprocessor PUBLIC 
@@ -79,6 +81,10 @@ target_link_libraries(test_serialization streamprocessor)
 # Storage tests
 add_executable(test_storage tests/test_storage.cpp)
 target_link_libraries(test_storage streamprocessor)
+
+# Topic & Partition tests
+add_executable(test_topic tests/test_topic.cpp)
+target_link_libraries(test_topic streamprocessor)
 
 # =============================================================================
 # Install targets

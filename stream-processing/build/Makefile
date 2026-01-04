@@ -213,6 +213,19 @@ test_storage/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/build
 .PHONY : test_storage/fast
 
+#=============================================================================
+# Target rules for targets named test_topic
+
+# Build rule for target.
+test_topic: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_topic
+.PHONY : test_topic
+
+# fast build rule for target.
+test_topic/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/build
+.PHONY : test_topic/fast
+
 src/core/message.o: src/core/message.cpp.o
 .PHONY : src/core/message.o
 
@@ -236,6 +249,54 @@ src/core/message.s: src/core/message.cpp.s
 src/core/message.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/message.cpp.s
 .PHONY : src/core/message.cpp.s
+
+src/core/partition.o: src/core/partition.cpp.o
+.PHONY : src/core/partition.o
+
+# target to build an object file
+src/core/partition.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/partition.cpp.o
+.PHONY : src/core/partition.cpp.o
+
+src/core/partition.i: src/core/partition.cpp.i
+.PHONY : src/core/partition.i
+
+# target to preprocess a source file
+src/core/partition.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/partition.cpp.i
+.PHONY : src/core/partition.cpp.i
+
+src/core/partition.s: src/core/partition.cpp.s
+.PHONY : src/core/partition.s
+
+# target to generate assembly for a file
+src/core/partition.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/partition.cpp.s
+.PHONY : src/core/partition.cpp.s
+
+src/core/topic.o: src/core/topic.cpp.o
+.PHONY : src/core/topic.o
+
+# target to build an object file
+src/core/topic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/topic.cpp.o
+.PHONY : src/core/topic.cpp.o
+
+src/core/topic.i: src/core/topic.cpp.i
+.PHONY : src/core/topic.i
+
+# target to preprocess a source file
+src/core/topic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/topic.cpp.i
+.PHONY : src/core/topic.cpp.i
+
+src/core/topic.s: src/core/topic.cpp.s
+.PHONY : src/core/topic.s
+
+# target to generate assembly for a file
+src/core/topic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/topic.cpp.s
+.PHONY : src/core/topic.cpp.s
 
 src/storage/log_segment.o: src/storage/log_segment.cpp.o
 .PHONY : src/storage/log_segment.o
@@ -333,6 +394,30 @@ tests/test_storage.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/tests/test_storage.cpp.s
 .PHONY : tests/test_storage.cpp.s
 
+tests/test_topic.o: tests/test_topic.cpp.o
+.PHONY : tests/test_topic.o
+
+# target to build an object file
+tests/test_topic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/tests/test_topic.cpp.o
+.PHONY : tests/test_topic.cpp.o
+
+tests/test_topic.i: tests/test_topic.cpp.i
+.PHONY : tests/test_topic.i
+
+# target to preprocess a source file
+tests/test_topic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/tests/test_topic.cpp.i
+.PHONY : tests/test_topic.cpp.i
+
+tests/test_topic.s: tests/test_topic.cpp.s
+.PHONY : tests/test_topic.s
+
+# target to generate assembly for a file
+tests/test_topic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/tests/test_topic.cpp.s
+.PHONY : tests/test_topic.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -349,9 +434,16 @@ help:
 	@echo "... test_basic"
 	@echo "... test_serialization"
 	@echo "... test_storage"
+	@echo "... test_topic"
 	@echo "... src/core/message.o"
 	@echo "... src/core/message.i"
 	@echo "... src/core/message.s"
+	@echo "... src/core/partition.o"
+	@echo "... src/core/partition.i"
+	@echo "... src/core/partition.s"
+	@echo "... src/core/topic.o"
+	@echo "... src/core/topic.i"
+	@echo "... src/core/topic.s"
 	@echo "... src/storage/log_segment.o"
 	@echo "... src/storage/log_segment.i"
 	@echo "... src/storage/log_segment.s"
@@ -364,6 +456,9 @@ help:
 	@echo "... tests/test_storage.o"
 	@echo "... tests/test_storage.i"
 	@echo "... tests/test_storage.s"
+	@echo "... tests/test_topic.o"
+	@echo "... tests/test_topic.i"
+	@echo "... tests/test_topic.s"
 .PHONY : help
 
 
