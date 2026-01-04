@@ -162,6 +162,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named streamprocessor
+
+# Build rule for target.
+streamprocessor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 streamprocessor
+.PHONY : streamprocessor
+
+# fast build rule for target.
+streamprocessor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/build
+.PHONY : streamprocessor/fast
+
+#=============================================================================
 # Target rules for targets named test_basic
 
 # Build rule for target.
@@ -173,6 +186,80 @@ test_basic: cmake_check_build_system
 test_basic/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_basic.dir/build.make CMakeFiles/test_basic.dir/build
 .PHONY : test_basic/fast
+
+#=============================================================================
+# Target rules for targets named test_serialization
+
+# Build rule for target.
+test_serialization: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_serialization
+.PHONY : test_serialization
+
+# fast build rule for target.
+test_serialization/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/build
+.PHONY : test_serialization/fast
+
+#=============================================================================
+# Target rules for targets named test_storage
+
+# Build rule for target.
+test_storage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_storage
+.PHONY : test_storage
+
+# fast build rule for target.
+test_storage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/build
+.PHONY : test_storage/fast
+
+src/core/message.o: src/core/message.cpp.o
+.PHONY : src/core/message.o
+
+# target to build an object file
+src/core/message.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/message.cpp.o
+.PHONY : src/core/message.cpp.o
+
+src/core/message.i: src/core/message.cpp.i
+.PHONY : src/core/message.i
+
+# target to preprocess a source file
+src/core/message.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/message.cpp.i
+.PHONY : src/core/message.cpp.i
+
+src/core/message.s: src/core/message.cpp.s
+.PHONY : src/core/message.s
+
+# target to generate assembly for a file
+src/core/message.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/message.cpp.s
+.PHONY : src/core/message.cpp.s
+
+src/storage/log_segment.o: src/storage/log_segment.cpp.o
+.PHONY : src/storage/log_segment.o
+
+# target to build an object file
+src/storage/log_segment.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/storage/log_segment.cpp.o
+.PHONY : src/storage/log_segment.cpp.o
+
+src/storage/log_segment.i: src/storage/log_segment.cpp.i
+.PHONY : src/storage/log_segment.i
+
+# target to preprocess a source file
+src/storage/log_segment.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/storage/log_segment.cpp.i
+.PHONY : src/storage/log_segment.cpp.i
+
+src/storage/log_segment.s: src/storage/log_segment.cpp.s
+.PHONY : src/storage/log_segment.s
+
+# target to generate assembly for a file
+src/storage/log_segment.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/storage/log_segment.cpp.s
+.PHONY : src/storage/log_segment.cpp.s
 
 tests/test_basic.o: tests/test_basic.cpp.o
 .PHONY : tests/test_basic.o
@@ -198,6 +285,54 @@ tests/test_basic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_basic.dir/build.make CMakeFiles/test_basic.dir/tests/test_basic.cpp.s
 .PHONY : tests/test_basic.cpp.s
 
+tests/test_serialization.o: tests/test_serialization.cpp.o
+.PHONY : tests/test_serialization.o
+
+# target to build an object file
+tests/test_serialization.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/tests/test_serialization.cpp.o
+.PHONY : tests/test_serialization.cpp.o
+
+tests/test_serialization.i: tests/test_serialization.cpp.i
+.PHONY : tests/test_serialization.i
+
+# target to preprocess a source file
+tests/test_serialization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/tests/test_serialization.cpp.i
+.PHONY : tests/test_serialization.cpp.i
+
+tests/test_serialization.s: tests/test_serialization.cpp.s
+.PHONY : tests/test_serialization.s
+
+# target to generate assembly for a file
+tests/test_serialization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/tests/test_serialization.cpp.s
+.PHONY : tests/test_serialization.cpp.s
+
+tests/test_storage.o: tests/test_storage.cpp.o
+.PHONY : tests/test_storage.o
+
+# target to build an object file
+tests/test_storage.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/tests/test_storage.cpp.o
+.PHONY : tests/test_storage.cpp.o
+
+tests/test_storage.i: tests/test_storage.cpp.i
+.PHONY : tests/test_storage.i
+
+# target to preprocess a source file
+tests/test_storage.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/tests/test_storage.cpp.i
+.PHONY : tests/test_storage.cpp.i
+
+tests/test_storage.s: tests/test_storage.cpp.s
+.PHONY : tests/test_storage.s
+
+# target to generate assembly for a file
+tests/test_storage.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/tests/test_storage.cpp.s
+.PHONY : tests/test_storage.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,10 +345,25 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... streamprocessor"
 	@echo "... test_basic"
+	@echo "... test_serialization"
+	@echo "... test_storage"
+	@echo "... src/core/message.o"
+	@echo "... src/core/message.i"
+	@echo "... src/core/message.s"
+	@echo "... src/storage/log_segment.o"
+	@echo "... src/storage/log_segment.i"
+	@echo "... src/storage/log_segment.s"
 	@echo "... tests/test_basic.o"
 	@echo "... tests/test_basic.i"
 	@echo "... tests/test_basic.s"
+	@echo "... tests/test_serialization.o"
+	@echo "... tests/test_serialization.i"
+	@echo "... tests/test_serialization.s"
+	@echo "... tests/test_storage.o"
+	@echo "... tests/test_storage.i"
+	@echo "... tests/test_storage.s"
 .PHONY : help
 
 

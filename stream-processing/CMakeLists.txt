@@ -46,16 +46,15 @@ set(CORE_SOURCES
 # Main Library
 # =============================================================================
 
-# Create main library (header-only for MVP until we have implementations)
-add_library(streamprocessor INTERFACE)
-target_include_directories(streamprocessor INTERFACE 
+# Create main library with source files
+add_library(streamprocessor STATIC
+    src/core/message.cpp
+    src/storage/log_segment.cpp
+)
+target_include_directories(streamprocessor PUBLIC 
     ${CMAKE_SOURCE_DIR}/include
 )
-target_link_libraries(streamprocessor INTERFACE Threads::Threads)
-
-# When you have source files, change to:
-# add_library(streamprocessor STATIC ${CORE_SOURCES})
-# target_link_libraries(streamprocessor Threads::Threads)
+target_link_libraries(streamprocessor PUBLIC Threads::Threads)
 
 # =============================================================================
 # Executables (uncomment as you implement)
@@ -69,13 +68,17 @@ target_link_libraries(streamprocessor INTERFACE Threads::Threads)
 # Tests
 # =============================================================================
 
-# Simple test executable
+# Basic tests
 add_executable(test_basic tests/test_basic.cpp)
-target_link_libraries(test_basic streamprocessor Threads::Threads)
+target_link_libraries(test_basic streamprocessor)
 
-# Performance test
-# add_executable(perf_test tests/performance_test.cpp)
-# target_link_libraries(perf_test streamprocessor)
+# Serialization tests
+add_executable(test_serialization tests/test_serialization.cpp)
+target_link_libraries(test_serialization streamprocessor)
+
+# Storage tests
+add_executable(test_storage tests/test_storage.cpp)
+target_link_libraries(test_storage streamprocessor)
 
 # =============================================================================
 # Install targets

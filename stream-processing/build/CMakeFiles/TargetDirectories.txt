@@ -1,4 +1,7 @@
+/workspaces/codespaces-blank/stream-processing/build/CMakeFiles/streamprocessor.dir
 /workspaces/codespaces-blank/stream-processing/build/CMakeFiles/test_basic.dir
+/workspaces/codespaces-blank/stream-processing/build/CMakeFiles/test_serialization.dir
+/workspaces/codespaces-blank/stream-processing/build/CMakeFiles/test_storage.dir
 /workspaces/codespaces-blank/stream-processing/build/CMakeFiles/edit_cache.dir
 /workspaces/codespaces-blank/stream-processing/build/CMakeFiles/rebuild_cache.dir
 /workspaces/codespaces-blank/stream-processing/build/CMakeFiles/list_install_components.dir
