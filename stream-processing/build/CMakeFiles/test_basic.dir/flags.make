@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/workspaces/codespaces-blank/stream-processing/include
 
-CXX_FLAGS =  -Wall -Wextra -Wpedantic -O1 -g -fsanitize=address -fno-omit-frame-pointer -std=c++17
+CXX_FLAGS =  -Wall -Wextra -Wpedantic -O3 -march=native -DNDEBUG -std=c++17
 

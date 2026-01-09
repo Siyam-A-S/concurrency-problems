@@ -68,6 +68,9 @@ all: CMakeFiles/test_basic.dir/all
 all: CMakeFiles/test_serialization.dir/all
 all: CMakeFiles/test_storage.dir/all
 all: CMakeFiles/test_topic.dir/all
+all: CMakeFiles/test_broker.dir/all
+all: CMakeFiles/test_network.dir/all
+all: CMakeFiles/test_performance.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -80,6 +83,9 @@ clean: CMakeFiles/test_basic.dir/clean
 clean: CMakeFiles/test_serialization.dir/clean
 clean: CMakeFiles/test_storage.dir/clean
 clean: CMakeFiles/test_topic.dir/clean
+clean: CMakeFiles/test_broker.dir/clean
+clean: CMakeFiles/test_network.dir/clean
+clean: CMakeFiles/test_performance.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -89,12 +95,12 @@ clean: CMakeFiles/test_topic.dir/clean
 CMakeFiles/streamprocessor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target streamprocessor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target streamprocessor"
 .PHONY : CMakeFiles/streamprocessor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/streamprocessor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/streamprocessor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/streamprocessor.dir/rule
@@ -115,12 +121,12 @@ CMakeFiles/streamprocessor.dir/clean:
 CMakeFiles/test_basic.dir/all: CMakeFiles/streamprocessor.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_basic.dir/build.make CMakeFiles/test_basic.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_basic.dir/build.make CMakeFiles/test_basic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=6,7 "Built target test_basic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=10,11 "Built target test_basic"
 .PHONY : CMakeFiles/test_basic.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_basic.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_basic.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_basic.dir/rule
@@ -141,12 +147,12 @@ CMakeFiles/test_basic.dir/clean:
 CMakeFiles/test_serialization.dir/all: CMakeFiles/streamprocessor.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_serialization.dir/build.make CMakeFiles/test_serialization.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=8,9 "Built target test_serialization"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=18,19 "Built target test_serialization"
 .PHONY : CMakeFiles/test_serialization.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_serialization.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_serialization.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_serialization.dir/rule
@@ -167,12 +173,12 @@ CMakeFiles/test_serialization.dir/clean:
 CMakeFiles/test_storage.dir/all: CMakeFiles/streamprocessor.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_storage.dir/build.make CMakeFiles/test_storage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=10,11 "Built target test_storage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=20,21 "Built target test_storage"
 .PHONY : CMakeFiles/test_storage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_storage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_storage.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_storage.dir/rule
@@ -193,12 +199,12 @@ CMakeFiles/test_storage.dir/clean:
 CMakeFiles/test_topic.dir/all: CMakeFiles/streamprocessor.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=12,13 "Built target test_topic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=22,23 "Built target test_topic"
 .PHONY : CMakeFiles/test_topic.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/test_topic.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_topic.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
 .PHONY : CMakeFiles/test_topic.dir/rule
@@ -211,6 +217,84 @@ test_topic: CMakeFiles/test_topic.dir/rule
 CMakeFiles/test_topic.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/clean
 .PHONY : CMakeFiles/test_topic.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_broker.dir
+
+# All Build rule for target.
+CMakeFiles/test_broker.dir/all: CMakeFiles/streamprocessor.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=12,13 "Built target test_broker"
+.PHONY : CMakeFiles/test_broker.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_broker.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_broker.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_broker.dir/rule
+
+# Convenience name for target.
+test_broker: CMakeFiles/test_broker.dir/rule
+.PHONY : test_broker
+
+# clean rule for target.
+CMakeFiles/test_broker.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/clean
+.PHONY : CMakeFiles/test_broker.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_network.dir
+
+# All Build rule for target.
+CMakeFiles/test_network.dir/all: CMakeFiles/streamprocessor.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=14,15 "Built target test_network"
+.PHONY : CMakeFiles/test_network.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_network.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_network.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_network.dir/rule
+
+# Convenience name for target.
+test_network: CMakeFiles/test_network.dir/rule
+.PHONY : test_network
+
+# clean rule for target.
+CMakeFiles/test_network.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/clean
+.PHONY : CMakeFiles/test_network.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_performance.dir
+
+# All Build rule for target.
+CMakeFiles/test_performance.dir/all: CMakeFiles/streamprocessor.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/workspaces/codespaces-blank/stream-processing/build/CMakeFiles --progress-num=16,17 "Built target test_performance"
+.PHONY : CMakeFiles/test_performance.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_performance.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_performance.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/codespaces-blank/stream-processing/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_performance.dir/rule
+
+# Convenience name for target.
+test_performance: CMakeFiles/test_performance.dir/rule
+.PHONY : test_performance
+
+# clean rule for target.
+CMakeFiles/test_performance.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/clean
+.PHONY : CMakeFiles/test_performance.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

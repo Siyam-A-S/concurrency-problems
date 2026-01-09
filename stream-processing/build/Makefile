@@ -226,6 +226,69 @@ test_topic/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_topic.dir/build.make CMakeFiles/test_topic.dir/build
 .PHONY : test_topic/fast
 
+#=============================================================================
+# Target rules for targets named test_broker
+
+# Build rule for target.
+test_broker: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_broker
+.PHONY : test_broker
+
+# fast build rule for target.
+test_broker/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/build
+.PHONY : test_broker/fast
+
+#=============================================================================
+# Target rules for targets named test_network
+
+# Build rule for target.
+test_network: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_network
+.PHONY : test_network
+
+# fast build rule for target.
+test_network/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/build
+.PHONY : test_network/fast
+
+#=============================================================================
+# Target rules for targets named test_performance
+
+# Build rule for target.
+test_performance: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_performance
+.PHONY : test_performance
+
+# fast build rule for target.
+test_performance/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/build
+.PHONY : test_performance/fast
+
+src/core/broker.o: src/core/broker.cpp.o
+.PHONY : src/core/broker.o
+
+# target to build an object file
+src/core/broker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/broker.cpp.o
+.PHONY : src/core/broker.cpp.o
+
+src/core/broker.i: src/core/broker.cpp.i
+.PHONY : src/core/broker.i
+
+# target to preprocess a source file
+src/core/broker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/broker.cpp.i
+.PHONY : src/core/broker.cpp.i
+
+src/core/broker.s: src/core/broker.cpp.s
+.PHONY : src/core/broker.s
+
+# target to generate assembly for a file
+src/core/broker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/broker.cpp.s
+.PHONY : src/core/broker.cpp.s
+
 src/core/message.o: src/core/message.cpp.o
 .PHONY : src/core/message.o
 
@@ -298,6 +361,78 @@ src/core/topic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/core/topic.cpp.s
 .PHONY : src/core/topic.cpp.s
 
+src/network/client.o: src/network/client.cpp.o
+.PHONY : src/network/client.o
+
+# target to build an object file
+src/network/client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/client.cpp.o
+.PHONY : src/network/client.cpp.o
+
+src/network/client.i: src/network/client.cpp.i
+.PHONY : src/network/client.i
+
+# target to preprocess a source file
+src/network/client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/client.cpp.i
+.PHONY : src/network/client.cpp.i
+
+src/network/client.s: src/network/client.cpp.s
+.PHONY : src/network/client.s
+
+# target to generate assembly for a file
+src/network/client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/client.cpp.s
+.PHONY : src/network/client.cpp.s
+
+src/network/protocol.o: src/network/protocol.cpp.o
+.PHONY : src/network/protocol.o
+
+# target to build an object file
+src/network/protocol.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/protocol.cpp.o
+.PHONY : src/network/protocol.cpp.o
+
+src/network/protocol.i: src/network/protocol.cpp.i
+.PHONY : src/network/protocol.i
+
+# target to preprocess a source file
+src/network/protocol.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/protocol.cpp.i
+.PHONY : src/network/protocol.cpp.i
+
+src/network/protocol.s: src/network/protocol.cpp.s
+.PHONY : src/network/protocol.s
+
+# target to generate assembly for a file
+src/network/protocol.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/protocol.cpp.s
+.PHONY : src/network/protocol.cpp.s
+
+src/network/tcp_server.o: src/network/tcp_server.cpp.o
+.PHONY : src/network/tcp_server.o
+
+# target to build an object file
+src/network/tcp_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/tcp_server.cpp.o
+.PHONY : src/network/tcp_server.cpp.o
+
+src/network/tcp_server.i: src/network/tcp_server.cpp.i
+.PHONY : src/network/tcp_server.i
+
+# target to preprocess a source file
+src/network/tcp_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/tcp_server.cpp.i
+.PHONY : src/network/tcp_server.cpp.i
+
+src/network/tcp_server.s: src/network/tcp_server.cpp.s
+.PHONY : src/network/tcp_server.s
+
+# target to generate assembly for a file
+src/network/tcp_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/streamprocessor.dir/build.make CMakeFiles/streamprocessor.dir/src/network/tcp_server.cpp.s
+.PHONY : src/network/tcp_server.cpp.s
+
 src/storage/log_segment.o: src/storage/log_segment.cpp.o
 .PHONY : src/storage/log_segment.o
 
@@ -345,6 +480,78 @@ tests/test_basic.s: tests/test_basic.cpp.s
 tests/test_basic.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_basic.dir/build.make CMakeFiles/test_basic.dir/tests/test_basic.cpp.s
 .PHONY : tests/test_basic.cpp.s
+
+tests/test_broker.o: tests/test_broker.cpp.o
+.PHONY : tests/test_broker.o
+
+# target to build an object file
+tests/test_broker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/tests/test_broker.cpp.o
+.PHONY : tests/test_broker.cpp.o
+
+tests/test_broker.i: tests/test_broker.cpp.i
+.PHONY : tests/test_broker.i
+
+# target to preprocess a source file
+tests/test_broker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/tests/test_broker.cpp.i
+.PHONY : tests/test_broker.cpp.i
+
+tests/test_broker.s: tests/test_broker.cpp.s
+.PHONY : tests/test_broker.s
+
+# target to generate assembly for a file
+tests/test_broker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_broker.dir/build.make CMakeFiles/test_broker.dir/tests/test_broker.cpp.s
+.PHONY : tests/test_broker.cpp.s
+
+tests/test_network.o: tests/test_network.cpp.o
+.PHONY : tests/test_network.o
+
+# target to build an object file
+tests/test_network.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/tests/test_network.cpp.o
+.PHONY : tests/test_network.cpp.o
+
+tests/test_network.i: tests/test_network.cpp.i
+.PHONY : tests/test_network.i
+
+# target to preprocess a source file
+tests/test_network.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/tests/test_network.cpp.i
+.PHONY : tests/test_network.cpp.i
+
+tests/test_network.s: tests/test_network.cpp.s
+.PHONY : tests/test_network.s
+
+# target to generate assembly for a file
+tests/test_network.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_network.dir/build.make CMakeFiles/test_network.dir/tests/test_network.cpp.s
+.PHONY : tests/test_network.cpp.s
+
+tests/test_performance.o: tests/test_performance.cpp.o
+.PHONY : tests/test_performance.o
+
+# target to build an object file
+tests/test_performance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/tests/test_performance.cpp.o
+.PHONY : tests/test_performance.cpp.o
+
+tests/test_performance.i: tests/test_performance.cpp.i
+.PHONY : tests/test_performance.i
+
+# target to preprocess a source file
+tests/test_performance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/tests/test_performance.cpp.i
+.PHONY : tests/test_performance.cpp.i
+
+tests/test_performance.s: tests/test_performance.cpp.s
+.PHONY : tests/test_performance.s
+
+# target to generate assembly for a file
+tests/test_performance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_performance.dir/build.make CMakeFiles/test_performance.dir/tests/test_performance.cpp.s
+.PHONY : tests/test_performance.cpp.s
 
 tests/test_serialization.o: tests/test_serialization.cpp.o
 .PHONY : tests/test_serialization.o
@@ -432,9 +639,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... streamprocessor"
 	@echo "... test_basic"
+	@echo "... test_broker"
+	@echo "... test_network"
+	@echo "... test_performance"
 	@echo "... test_serialization"
 	@echo "... test_storage"
 	@echo "... test_topic"
+	@echo "... src/core/broker.o"
+	@echo "... src/core/broker.i"
+	@echo "... src/core/broker.s"
 	@echo "... src/core/message.o"
 	@echo "... src/core/message.i"
 	@echo "... src/core/message.s"
@@ -444,12 +657,30 @@ help:
 	@echo "... src/core/topic.o"
 	@echo "... src/core/topic.i"
 	@echo "... src/core/topic.s"
+	@echo "... src/network/client.o"
+	@echo "... src/network/client.i"
+	@echo "... src/network/client.s"
+	@echo "... src/network/protocol.o"
+	@echo "... src/network/protocol.i"
+	@echo "... src/network/protocol.s"
+	@echo "... src/network/tcp_server.o"
+	@echo "... src/network/tcp_server.i"
+	@echo "... src/network/tcp_server.s"
 	@echo "... src/storage/log_segment.o"
 	@echo "... src/storage/log_segment.i"
 	@echo "... src/storage/log_segment.s"
 	@echo "... tests/test_basic.o"
 	@echo "... tests/test_basic.i"
 	@echo "... tests/test_basic.s"
+	@echo "... tests/test_broker.o"
+	@echo "... tests/test_broker.i"
+	@echo "... tests/test_broker.s"
+	@echo "... tests/test_network.o"
+	@echo "... tests/test_network.i"
+	@echo "... tests/test_network.s"
+	@echo "... tests/test_performance.o"
+	@echo "... tests/test_performance.i"
+	@echo "... tests/test_performance.s"
 	@echo "... tests/test_serialization.o"
 	@echo "... tests/test_serialization.i"
 	@echo "... tests/test_serialization.s"

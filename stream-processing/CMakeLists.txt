@@ -51,7 +51,11 @@ add_library(streamprocessor STATIC
     src/core/message.cpp
     src/core/partition.cpp
     src/core/topic.cpp
+    src/core/broker.cpp
     src/storage/log_segment.cpp
+    src/network/protocol.cpp
+    src/network/tcp_server.cpp
+    src/network/client.cpp
 )
 target_include_directories(streamprocessor PUBLIC 
     ${CMAKE_SOURCE_DIR}/include
@@ -85,6 +89,18 @@ target_link_libraries(test_storage streamprocessor)
 # Topic & Partition tests
 add_executable(test_topic tests/test_topic.cpp)
 target_link_libraries(test_topic streamprocessor)
+
+# Broker tests
+add_executable(test_broker tests/test_broker.cpp)
+target_link_libraries(test_broker streamprocessor)
+
+# Network tests
+add_executable(test_network tests/test_network.cpp)
+target_link_libraries(test_network streamprocessor)
+
+# Performance tests
+add_executable(test_performance tests/test_performance.cpp)
+target_link_libraries(test_performance streamprocessor)
 
 # =============================================================================
 # Install targets

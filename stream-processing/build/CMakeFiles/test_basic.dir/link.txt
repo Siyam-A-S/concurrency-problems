@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -Wpedantic -O1 -g -fsanitize=address -fno-omit-frame-pointer CMakeFiles/test_basic.dir/tests/test_basic.cpp.o -o test_basic  libstreamprocessor.a 
+/usr/bin/c++  -Wall -Wextra -Wpedantic -O3 -march=native -DNDEBUG CMakeFiles/test_basic.dir/tests/test_basic.cpp.o -o test_basic  libstreamprocessor.a 
