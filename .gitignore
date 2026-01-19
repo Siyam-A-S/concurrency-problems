@@ -1,5 +1,5 @@
 .vscode/
-
+stream-processing-deploy/.env
 # Ignore all build directories and their contents
 **/build/
 

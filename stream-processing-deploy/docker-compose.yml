@@ -1,0 +1,177 @@
+services:
+  stream-processor:
+    build:
+      context: ..
+      dockerfile: stream-processing-deploy/Dockerfile
+    container_name: stream-processor
+    ports:
+      # Expose on all interfaces for external access
+      - "9092:9092"
+    volumes:
+      # Persistent storage for messages
+      - stream-data:/data
+    environment:
+      - STREAM_PORT=9092
+      - STREAM_BIND=0.0.0.0
+      - STREAM_IO_THREADS=4
+      - STREAM_WORKER_THREADS=8
+      - STREAM_MAX_CONNECTIONS=10000
+    restart: unless-stopped
+    networks:
+      - stream-network
+    # Resource limits (adjust based on your environment)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    # Logging configuration
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "3"
+
+  # Coinbase FIX API Bridge - connects to Coinbase and streams to processor
+  coinbase-bridge:
+    build:
+      context: ..
+      dockerfile: stream-processing-deploy/Dockerfile
+    container_name: coinbase-bridge
+    entrypoint: ["/usr/local/bin/coinbase-bridge"]
+    command: []
+    depends_on:
+      stream-processor:
+        condition: service_healthy
+    environment:
+      # Coinbase API credentials (set these in .env file or docker-compose override)
+      - COINBASE_API_KEY=${COINBASE_API_KEY:-}
+      - COINBASE_API_SECRET=${COINBASE_API_SECRET:-}
+      - COINBASE_PASSPHRASE=${COINBASE_PASSPHRASE:-}
+      - COINBASE_SENDER_COMP_ID=${COINBASE_SENDER_COMP_ID:-}
+      # Use sandbox by default for safety
+      - COINBASE_USE_SANDBOX=${COINBASE_USE_SANDBOX:-true}
+      # Symbols to subscribe to
+      - COINBASE_SYMBOLS=${COINBASE_SYMBOLS:-BTC-USD,ETH-USD}
+      # Stream processor connection
+      - STREAM_HOST=stream-processor
+      - STREAM_PORT=9092
+    restart: unless-stopped
+    networks:
+      - stream-network
+    # Only start if credentials are provided
+    profiles:
+      - coinbase-fix
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  # Coinbase WebSocket Bridge - PUBLIC market data, no auth required!
+  coinbase-ws-bridge:
+    build:
+      context: ..
+      dockerfile: stream-processing-deploy/Dockerfile
+    container_name: coinbase-ws-bridge
+    entrypoint: ["/usr/local/bin/coinbase-ws-bridge"]
+    command: []
+    depends_on:
+      stream-processor:
+        condition: service_healthy
+    environment:
+      # Use sandbox by default for safety
+      - COINBASE_USE_SANDBOX=${COINBASE_USE_SANDBOX:-false}
+      # Symbols to subscribe to
+      - COINBASE_SYMBOLS=${COINBASE_SYMBOLS:-BTC-USD,ETH-USD}
+      # Channels: ticker, matches, level2, heartbeat
+      - COINBASE_CHANNELS=${COINBASE_CHANNELS:-ticker,matches}
+      # Stream processor connection
+      - STREAM_HOST=stream-processor
+      - STREAM_PORT=9092
+    restart: unless-stopped
+    networks:
+      - stream-network
+    profiles:
+      - coinbase
+    healthcheck:
+      test: ["CMD", "true"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  # ML Inference Pipeline - Feature Engineering → Model → Trading Actuation
+  ml-pipeline:
+    build:
+      context: ..
+      dockerfile: stream-processing-deploy/Dockerfile
+    container_name: ml-pipeline
+    entrypoint: ["/usr/local/bin/ml-pipeline"]
+    command: []
+    depends_on:
+      stream-processor:
+        condition: service_healthy
+    environment:
+      # Stream processor connection
+      - STREAM_HOST=stream-processor
+      - STREAM_PORT=9092
+      # Symbols to process
+      - PIPELINE_SYMBOLS=${PIPELINE_SYMBOLS:-BTC-USD,ETH-USD}
+      # Model configuration
+      - MODEL_TYPE=${MODEL_TYPE:-mock}
+      # Options: mock, onnx, remote
+      - ONNX_MODEL_PATH=${ONNX_MODEL_PATH:-/models/patchtst.onnx}
+      - REMOTE_MODEL_HOST=${REMOTE_MODEL_HOST:-localhost}
+      - REMOTE_MODEL_PORT=${REMOTE_MODEL_PORT:-8001}
+      # Inference settings
+      - INFERENCE_WORKERS=${INFERENCE_WORKERS:-2}
+      - FEATURE_INTERVAL_MS=${FEATURE_INTERVAL_MS:-100}
+      # Trading mode
+      - TRADING_MODE=${TRADING_MODE:-paper}
+      # Options: paper, live, disabled
+      # Risk limits
+      - MAX_POSITION_SIZE=${MAX_POSITION_SIZE:-1.0}
+      - MAX_DAILY_LOSS=${MAX_DAILY_LOSS:-1000.0}
+      - MAX_DRAWDOWN_PCT=${MAX_DRAWDOWN_PCT:-5.0}
+      - MAX_ORDERS_PER_MINUTE=${MAX_ORDERS_PER_MINUTE:-10}
+      # Coinbase credentials (only for live trading)
+      - COINBASE_API_KEY=${COINBASE_API_KEY:-}
+      - COINBASE_API_SECRET=${COINBASE_API_SECRET:-}
+      - COINBASE_USE_SANDBOX=${COINBASE_USE_SANDBOX:-true}
+    restart: unless-stopped
+    networks:
+      - stream-network
+    profiles:
+      - ml-pipeline
+    volumes:
+      # Mount models directory if using ONNX
+      - ${MODELS_DIR:-./models}:/models:ro
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 2G
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "5"
+
+volumes:
+  stream-data:
+    driver: local
+
+networks:
+  stream-network:
+    driver: bridge
