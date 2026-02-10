@@ -54,6 +54,15 @@ RUN g++ -std=c++17 -O3 -o ml-pipeline \
     stream-processing/build/libstreamprocessor.a \
     -lpthread -lssl -lcrypto
 
+# Build the Coinbase OpenVINO inference pipeline
+RUN g++ -std=c++17 -O3 -o coinbase-inference \
+    server-src/coinbase_inference_main.cpp \
+    -I stream-processing/include \
+    -I server-src \
+    -I server-src/pipeline \
+    stream-processing/build/libstreamprocessor.a \
+    -lpthread -lssl -lcrypto
+
 # Runtime image
 FROM ubuntu:24.04 AS runtime
 
@@ -75,7 +84,8 @@ COPY --from=builder /build/stream-server /usr/local/bin/stream-server
 COPY --from=builder /build/coinbase-bridge /usr/local/bin/coinbase-bridge
 COPY --from=builder /build/coinbase-ws-bridge /usr/local/bin/coinbase-ws-bridge
 COPY --from=builder /build/ml-pipeline /usr/local/bin/ml-pipeline
-RUN chmod +x /usr/local/bin/stream-server /usr/local/bin/coinbase-bridge /usr/local/bin/coinbase-ws-bridge /usr/local/bin/ml-pipeline
+COPY --from=builder /build/coinbase-inference /usr/local/bin/coinbase-inference
+RUN chmod +x /usr/local/bin/stream-server /usr/local/bin/coinbase-bridge /usr/local/bin/coinbase-ws-bridge /usr/local/bin/ml-pipeline /usr/local/bin/coinbase-inference
 
 # Switch to non-root user
 USER streamuser
